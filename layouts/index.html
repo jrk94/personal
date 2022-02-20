@@ -1,0 +1,56 @@
+{{ define "main" }}
+    {{ $env := printf "<strong><span id='user'>%s@%s</span><span id='terminal'>:</span><span id='dir'>~/%s</span></strong><span id='terminal'>$</span>" .Site.Params.terminal.about.userName .Site.Params.terminal.about.pcName "" | safeHTML }}
+    {{ $envWithDir := printf "<strong><span id='user'>%s@%s</span><span id='terminal'>:</span><span id='dir'>~/%s</span></strong><span id='terminal'>$</span>" .Site.Params.terminal.about.userName .Site.Params.terminal.about.pcName .Site.Params.terminal.about.workDir | safeHTML }}
+
+    {{ $cd := printf "<span id='terminal'>cd %s</span>" .Site.Params.terminal.about.workDir | safeHTML }}
+    {{ $cat := printf "<span id=terminal>cat %s</span>" .Site.Params.terminal.about.profile | safeHTML }}
+
+    {{ $description := "" }}
+    
+    {{ if eq (substr .Site.Params.terminal.about.description -3 3) ".md"}}
+        {{ $s := "" }}
+        {{ with .Site.GetPage .Site.Params.terminal.about.description }}
+            <!-- replace the first  p tag with a br tag  -->
+            {{ $s = replaceRE "</?p[^>]*>" "" .Content 1 }}
+        {{ end }}
+        {{ $description = printf "<span id='terminal'>%s</span>" $s | safeHTML}}
+    {{ else }}
+        {{ $limit := sub (len (findRE "\n" .Site.Params.terminal.about.description)) 1 }}
+        {{ $description = printf "<span id='terminal'>%s</span>" .Site.Params.terminal.about.description }}
+        {{ $description = replaceRE "\n" "<br>" $description $limit| safeHTML }}
+    {{ end }}
+
+    {{ $tree := "" }}
+    {{ $leaf := "" }}
+    {{ if .Site.Params.terminal.tree.use }}
+    {{ $tree = printf "<span id='terminal'>tree ./%s/</span>" .Site.Params.terminal.tree.folderName | safeHTML}}
+    {{ $leaf = printf "%s<strong><span id='dir'>./%s/</span></strong><br>" $leaf .Site.Params.terminal.tree.folderName | safeHTML}}
+        {{ range $index, $val := .Site.Params.terminal.tree.files }}
+            {{ $ac := index $val 0}}
+            {{ $link := index $val 1}}
+
+            <!-- pass link (i.e. http, https) and mailto -->
+            {{ $l := $.Site.GetPage $link }}
+            {{ if $l }}
+                {{ $link = $l.Permalink}}
+            {{ end }}
+            
+            {{ if eq (add $index 1) (len $.Site.Params.terminal.tree.files) }}
+            {{ $leaf = printf "<span id='terminal'>%s└── <a href='%s'>%s</a></span>" $leaf $link $ac | safeHTML}}
+            {{ else }}
+            {{ $leaf = printf "<span id='terminal'>%s├── <a href='%s'>%s</a></span><br>" $leaf $link $ac | safeHTML}}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+
+    {{ $end := $env }}
+
+    {{ $payload := delimit (slice $cd $cat $description $tree $leaf $end) "" }}
+
+    {{ $ps1Delay := $.Site.Params.Terminal.ps1Delay }}
+    {{ $stdoutDelay :=  $.Site.Params.Terminal.stdoutDelay }}
+    {{ $commandDelay := $.Site.Params.Terminal.commandDelay }}
+
+    {{ partial "partials/typeIndex.html" (dict "context" . "env" $env "cd" $cd "envWithDir" $envWithDir "cat" $cat "description" $description "tree" $tree "leaf" $leaf "ps1delay" $ps1Delay "stdoutdelay" $stdoutDelay "commanddelay" $commandDelay ) }}
+
+{{ end }}

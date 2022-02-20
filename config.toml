@@ -1,0 +1,122 @@
+baseURL = "https://github.com/jrk94/personal"
+theme = ["risotto", "hugo-theme-shell"]
+title = "personal website"
+author = "João Roque"
+copyright = "© 2022 João Roque"
+paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+enableEmoji = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
+# Automatically add content sections to main menu
+sectionPagesMenu = "main"
+
+[params]
+
+[params.theme]
+palette = "gruvbox-dark"
+mode = "dark-mode"
+
+# Sidebar: about/bio
+[params.about]
+title = "myself (João Roque)"
+description = "/Tech Lead/ </br> /Senior Software Developer/</br> /IoT Engineer/</br>\"Getting Better one Bug at a time.\"</br> -> Working at Critical Manufacturing"
+logo = "images/vashTheStampede.svg"
+
+# Sidebar: social links
+# Available icon sets:
+# * FontAwesome 5 <https://fontawesome.com/> ('fas fa-' or 'fab-fa' for brands)
+# * Academicons <https://jpswalsh.github.io/academicons> ('ai ai-')
+
+[[params.socialLinks]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/jrk94"
+
+[[params.socialLinks]]
+icon = "fab fa-linkedin-in fa-fw"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/joao-roque/"
+
+[[params.socialLinks]]
+icon = "fas fa-envelope"
+title = "Email"
+url = "mailto:joao.roque.94@gmail.com"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+# For hugo >= 0.60.0, enable inline HTML
+[markup.goldmark.renderer]
+unsafe = true
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
+
+  [params.terminal.about]
+  userName = "jroque"
+  pcName = "terminal"
+  workDir = "mydir"
+  profile = "whoami.txt"
+  description = """
+  Hi I am João Roque!
+  I know, not a very international name...
+  Oh, well. I built this personal site out of shame of not having one...
+  Nice to meet you!
+  """
+  
+  ps1Delay = 0 # prompt speed : [userName]@[pcName]:~/$ , [userName]@[pcName]:~/[workDir]$
+  stdoutDelay = 0 # stdout speed : [description] , files in Params.Tree
+  commandDelay = 50 # command speed : cd [workDir] , cat [profile] , tree ./[folderName]/
+  titleDelay = 0 # title speed : "title" in front matter
+  contentDelay = 0 # content speed : content in .md file
+
+  [params.terminal.tree]
+  use = true
+  folderName = "my_activity"
+  # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
+  files = [ 
+    ["about", "/about/"],
+    ["cv", "/cv/"],
+    ["posts", "/posts/"],
+    ["github", "https://github.com/jrk94"],
+    ["linkedin", "https://www.linkedin.com/in/joao-roque/"]
+  ]
