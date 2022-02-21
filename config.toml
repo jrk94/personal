@@ -1,4 +1,4 @@
-baseURL = "https://github.com/jrk94/personal"
+baseURL = "/"
 theme = ["risotto", "hugo-theme-shell"]
 title = "personal website"
 author = "João Roque"
