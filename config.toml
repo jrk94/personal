@@ -17,6 +17,7 @@ sectionPagesMenu = "main"
 
 [params]
 
+favicon = "/images/icons/"
 [params.theme]
 palette = "gruvbox-dark"
 mode = "dark-mode"
