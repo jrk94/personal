@@ -17,6 +17,12 @@ A team is a melting pot of different people, with different ideas, working for a
 
 <span class="emojify">:triangular_flag_on_post:</span> Every team needs a banner, a rallying point, a token of membership. That's why I made the CMF Ops banner. For some it's a paper weight, for the others will be a great item that will foment belonging and a sense of being part of something greater.
 
+The team:
+
+-> [Marco Silva](https://www.linkedin.com/in/marcosilva/)
+-> [João Pereira](https://www.linkedin.com/in/joaoopereira/)
+-> [Ricardo Pereira](https://www.linkedin.com/in/ricardofslp/)
+
 <figure>
     <img src="/images/cmfOps.jpg" width="50%" height="50%" class="center"
          alt="Porto, Portugal 2022-01-18">
