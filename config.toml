@@ -41,7 +41,7 @@ url = "https://github.com/jrk94"
 [[params.socialLinks]]
 icon = "fab fa-linkedin-in fa-fw"
 title = "Linkedin"
-url = "https://www.linkedin.com/in/joao-roque/"
+url = "https://www.linkedin.com/in/j-roque/"
 
 [[params.socialLinks]]
 icon = "fas fa-envelope"
@@ -119,5 +119,5 @@ unsafe = true
     ["cv", "/cv/"],
     ["posts", "/posts/"],
     ["github", "https://github.com/jrk94"],
-    ["linkedin", "https://www.linkedin.com/in/joao-roque/"]
+    ["linkedin", "https://www.linkedin.com/in/j-roque/"]
   ]
