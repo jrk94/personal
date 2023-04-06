@@ -5,7 +5,7 @@ author = ""
 tags = ["cmf", "criticalmanufacturing"]
 +++
 
-Want to know more? Check my [Linkedin](https://www.linkedin.com/in/joao-roque/) or download my [CV](https://github.com/jrk94/personal/blob/main/static/docs/cv_Joa%CC%83o_Roque_en.pdf)
+Want to know more? Check my [Linkedin](https://www.linkedin.com/in/j-roque/) or download my [CV](https://github.com/jrk94/personal/blob/main/static/docs/cv_Joa%CC%83o_Roque_en.pdf)
 
 # Currently
 
