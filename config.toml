@@ -25,8 +25,8 @@ mode = "dark-mode"
 # Sidebar: about/bio
 [params.about]
 title = "myself (João Roque)"
-description = "/Tech Lead/ </br> /Senior Software Developer/</br> /IoT Engineer/</br>\"Getting Better one Bug at a time.\"</br> -> Working at Critical Manufacturing"
-logo = "images/vashTheStampede.svg"
+description = "/Dev Advocate/ </br> /Software Developer/</br> /IoT Engineer/</br>\"Getting Better one Bug at a time.\"</br> -> Working at Critical Manufacturing"
+logo = "images/myself.svg"
 
 # Sidebar: social links
 # Available icon sets:
